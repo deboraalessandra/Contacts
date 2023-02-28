@@ -1,16 +1,19 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { ListagemComponent } from './listagem/listagem.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { ContactModule } from './contact/contact.module';
+import { ListagemComponent } from './contact/listagem/listagem.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { ContactModule } from './contact/contact.module';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    ContactModule
+    MatTableModule,
+    MatButtonModule,
+    ContactModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
