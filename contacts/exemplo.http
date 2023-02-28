@@ -1,0 +1,32 @@
+http://localhost:3000/contacts
+
+###
+POST http://localhost:3000/contacts/ HTTP/1.1
+content-type: application/json
+
+{
+    "id": 4,
+    "name": "Rodrigo",
+}
+
+###
+
+PUT http://localhost:3000/contacts/1 HTTP/1.1
+content-type: application/json
+
+{
+  "id": 1,
+      "name": "Débora",
+      "lastName": "Alessandra",
+      "email": "@outlook.com",
+      "phone": "(541) 9381464"
+}
+
+###
+DELETE http://localhost:3000/contacts/3 HTTP/1.1
+content-type: application/json
+
+
+###
+GET http://localhost:3000/contacts/ HTTP/1.1
+content-type: application/json
