@@ -1,8 +1,7 @@
-import { SolutionService } from './../services/solution.service';
 import { Component, OnInit } from '@angular/core';
 
 import { Contact } from '../model/contact';
-import { ContactService } from '../services/contact.service';
+import { SolutionService } from './../services/solution.service';
 
 @Component({
   selector: 'app-listagem',
