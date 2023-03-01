@@ -19,9 +19,9 @@ export class ListagemComponent implements OnInit {
 
   ngOnInit(): void {
     //  this.SoluctionService.listarTodos().subscribe(console.log);
-    // this.SoluctionService.listarTodos()
-    //   .subscribe(dados => this.contacts = dados);
-    
+     this.SoluctionService.listarTodos()
+      .subscribe(dados => this.contacts = dados);
+    // this.contacts$ = this.SoluctionService.listarTodos();
   }
 
 }

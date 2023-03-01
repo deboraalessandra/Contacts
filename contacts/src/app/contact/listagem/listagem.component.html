@@ -27,12 +27,20 @@
 
   <ng-container matColumnDef="remove">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="" > <mat-icon color="warn">cancel</mat-icon> </td>
+    <td mat-cell *matCellDef="">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon color="warn">cancel</mat-icon>
+      </button>
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="" > <mat-icon color="primary">border_color</mat-icon> </td>
+    <td mat-cell *matCellDef="">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon color="primary">border_color</mat-icon>
+      </button>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
