@@ -1,0 +1,119 @@
+[33mcommit aa61a31858ded8c9b975e991a16043bc54f47441[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Wed Mar 1 09:12:23 2023 -0300
+
+    Fix buttons and subscribe
+
+[33mcommit 9fa50aa3642341fe8d0a65d3fdb7d3d762eb1c3e[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Wed Mar 1 08:55:10 2023 -0300
+
+    Fix local db.json
+
+[33mcommit 7bda7783f1485c13d1f9938aed41885bb0173458[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 28 16:57:04 2023 -0300
+
+    Fix  file json
+
+[33mcommit 3fc7c96b4c9e9fbcab3af886eb2f6dce7069ac87[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 28 16:41:03 2023 -0300
+
+    Fix componente listagem
+
+[33mcommit 68fa64efa23822d15071a03262508ae7ee979f7c[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 28 16:39:22 2023 -0300
+
+    Strict mode
+
+[33mcommit 97b2998d75618e6e2fbb6375bb5f40af73b8d453[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 28 14:35:26 2023 -0300
+
+    Fixes
+
+[33mcommit 2f131e7b540fea61ce0b14b32eceaa7a6ecf6b08[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 28 14:31:43 2023 -0300
+
+    Environment
+
+[33mcommit 451618e35b9ad5bfd3b63b6bd41c69b2db050486[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 28 14:21:59 2023 -0300
+
+    Component Listagem
+
+[33mcommit 901f4f656e5bfbba0162f72a0b2103a1ee805112[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 28 14:15:02 2023 -0300
+
+    Service list all
+
+[33mcommit 20f79f82d1d969629b09022cb639ff2508b6d870[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 28 14:13:18 2023 -0300
+
+    Model contacts
+
+[33mcommit 0417ba0525b363346650e6881244aaf114d046da[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 28 14:12:11 2023 -0300
+
+    Json server
+
+[33mcommit 5822bb02f2015b2b75fa589405449273d64e2ec2[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 28 14:11:05 2023 -0300
+
+    Material icons
+
+[33mcommit 91ce63a9a82659fc667508d785464adf7dc02f76[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Thu Feb 23 13:33:47 2023 -0300
+
+    Created model
+
+[33mcommit a350775fc4774fe410a734034abd3d8cc688f0e7[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Thu Feb 23 13:33:20 2023 -0300
+
+    Install fontawesome
+
+[33mcommit 16934a8a2d39bbc7d1822c668ee939146c1c60cc[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 14 16:54:37 2023 -0300
+
+    Fix toolbar
+
+[33mcommit 418408ef9331309538f3e9c871fd47fb6859f108[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 14 16:54:22 2023 -0300
+
+    Component listagem created
+
+[33mcommit 65fca3f3208637eddf6622140b577d0d7dc217d4[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 14 16:53:58 2023 -0300
+
+    Module contact created
+
+[33mcommit b17a51fe66323aa8f5593f5bde713c6a00b44e7f[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 14 11:10:05 2023 -0300
+
+    Component toolbar
+
+[33mcommit 0704f570060bfb011e7794ab6b3e80cfbd13ca91[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 14 10:11:30 2023 -0300
+
+    Packages Angular Material installed successfully
+
+[33mcommit 417a68e3b940678c848963bf5be3cb915f7c13a2[m
+Author: Débora Rocha <debora.rocha@iatec.com>
+Date:   Tue Feb 14 09:59:54 2023 -0300
+
+    Created project

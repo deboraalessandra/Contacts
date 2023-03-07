@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,14 +14,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactModule } from './contact/contact.module';
 import { ListagemComponent } from './contact/listagem/listagem.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+import { ModalComponent } from './contact/modal/modal.component';
+import { ToolbarComponent } from './contact/toolbar/toolbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
-    ListagemComponent
+    ListagemComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatButtonModule,
     ContactModule,
     HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
