@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { ListagemComponent } from './contact/listagem/listagem.component';
+import { ModalComponent } from './shared/components/modal/modal.component';
+
+const routes: Routes = [
+  { path: '', component: ListagemComponent },
+  { path: 'modal', component: ModalComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

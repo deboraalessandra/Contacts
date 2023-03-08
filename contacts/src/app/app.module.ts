@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -14,7 +15,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactModule } from './contact/contact.module';
 import { ListagemComponent } from './contact/listagem/listagem.component';
-import { ModalComponent } from './contact/modal/modal.component';
 import { ToolbarComponent } from './contact/toolbar/toolbar.component';
 
 
@@ -23,7 +23,6 @@ import { ToolbarComponent } from './contact/toolbar/toolbar.component';
     AppComponent,
     ToolbarComponent,
     ListagemComponent,
-    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +36,8 @@ import { ToolbarComponent } from './contact/toolbar/toolbar.component';
     MatButtonModule,
     ContactModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

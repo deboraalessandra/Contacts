@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { catchError, Observable, of } from 'rxjs';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
 import { Contact } from '../model/contact';
 import { SolutionService } from './../services/solution.service';
@@ -15,15 +17,23 @@ export class ListagemComponent implements OnInit {
 
   contacts$: Observable<Contact[]>;
 
-  constructor(private SoluctionService: SolutionService) {
-    this.contacts$ = this.SoluctionService.listarTodos();
-  } //adicionando no construtor a injeção de serviço
-
-  ngOnInit(): void {
-    //  this.SoluctionService.listarTodos().subscribe(console.log);
-    //  this.SoluctionService.listarTodos()
-    //   .subscribe(dados => this.contacts = dados);
-    // this.contacts$ = this.SoluctionService.listarTodos();
+  constructor(private SoluctionService: SolutionService, //adicionando no construtor a injeção de serviço
+    public dialog: MatDialog,
+    ) {
+    this.contacts$ = this.SoluctionService.listarTodos()
+      .pipe(
+        catchError(error => {
+          this.onError('Erro ao carregar sua lista')
+          return of([])
+        })
+      );
   }
 
+  onError(errorMsg: string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
+    });
+  }
+
+  ngOnInit(): void {}
 }
