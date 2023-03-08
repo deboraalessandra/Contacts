@@ -1,11 +1,12 @@
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 import { ModalComponent } from './components/modal/modal.component';
@@ -24,11 +25,13 @@ import { ModalComponent } from './components/modal/modal.component';
     MatIconModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   exports: [
     ErrorDialogComponent,
-    ModalComponent
+    ModalComponent,
+    MatSnackBarModule
   ]
 })
 export class SharedModule { }
