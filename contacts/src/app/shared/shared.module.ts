@@ -1,3 +1,4 @@
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -22,6 +23,8 @@ import { ModalComponent } from './components/modal/modal.component';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     ErrorDialogComponent,
