@@ -1,4 +1,3 @@
-import { Location } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -15,7 +14,6 @@ export class ModalComponent implements OnInit {
 
   public form: FormGroup;
   email = new FormControl('', [Validators.required, Validators.email]);
-  private location: Location
 
   constructor(@Inject(MAT_DIALOG_DATA)
 
@@ -33,18 +31,12 @@ export class ModalComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-
-  }
-
-  loading(){
-   location.reload();
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     //console.log('onSubmit', this.form.value);
-    this.service.save(this.form.value).subscribe( result => this.onSuccess(), error => { this.onError() } );
-
+    this.service.save(this.form.value)
+    .subscribe((result) => {this.onSuccess()}  );
   }
 
   private onError(){
@@ -59,7 +51,6 @@ export class ModalComponent implements OnInit {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
     }
-
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 

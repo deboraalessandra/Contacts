@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { catchError, Observable, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
 import { EventEmitter } from 'stream';
 
 import { Contact } from '../model/contact';
@@ -16,17 +17,19 @@ export class ListagemComponent implements OnInit {
   contacts$: Observable<Contact[]>;
   //@Input() edit = new EventEmitter();
 
-  displayedColumns = ['id', 'name', 'lastName', 'email', 'phone', 'remove', 'edit'];
+  displayedColumns = ['id', 'name', 'lastName', 'email', 'phone', 'remove', 'edit', 'created'];
   //contacts: Contact[] = []; // lista de atributo de pessoas
-
 
   constructor(private SoluctionService: SolutionService, //adicionando no construtor a injeção de serviço
     public dialog: MatDialog,
-    ) {
-      this.listar();
-    }
+    public modalDialog: MatDialog
+  ) {}
 
-  listar (){
+  ngOnInit(): void {
+    this.updateContacts();
+  }
+
+  updateContacts() {
     this.contacts$ = this.SoluctionService.listarTodos()
       .pipe(
         catchError(error => {
@@ -38,13 +41,9 @@ export class ListagemComponent implements OnInit {
 
   save(data: Contact) {
     this.SoluctionService.save(data)
-    .subscribe(() => {
-        this.listar()
-    });
-  }
-
-  atualizarLista(){
-    this.contacts$ = this.SoluctionService.listarTodos()
+      .subscribe(() => {
+        this.updateContacts()
+      });
   }
 
   onError(errorMsg: string) {
@@ -53,9 +52,14 @@ export class ListagemComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
-  onEdit(contact: Contact){
-
+  openModal() {
+    const dialogRef = this.modalDialog.open(ModalComponent);
+    dialogRef.afterClosed().subscribe
+    (result => {
+      if(result){
+        this.updateContacts();
+      }});
   }
+
+  onEdit(contact: Contact) {}
 }
