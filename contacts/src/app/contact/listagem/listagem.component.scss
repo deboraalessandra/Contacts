@@ -1,10 +1,11 @@
 mat-table {
-  max-width: 80%;
-   margin: 2em auto;
- padding: 30px;
+  max-width: 1200px;
+  margin: 2em auto;
+  padding: 30px;
+  overflow: auto;
 }
 
-.loading-spinner{
+.loading-spinner {
   padding: 25px;
   // background: rgba($color: #c3dfec, $alpha: 1.0);
   display: flex;
@@ -12,4 +13,16 @@ mat-table {
   justify-content: center;
 }
 
+.col-flex {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
 
+.action-col{
+  flex: 0 0 75px;
+}
+
+.action-header{
+  flex: 0 0 55px;
+}

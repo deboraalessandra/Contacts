@@ -21,16 +21,17 @@ export class SolutionService {
     return this.httpCliente.get<Contact[]>(this.API)
       .pipe(
         first(),
-        delay(1000),
-        tap(contacts => console.log(contacts))
+        delay(1000)
+        // tap(contacts => console.log(contacts))
       );
-  }
-
-  remove(contacts: Contact[], contact: Contact) {
-    return contacts.filter((a) => contact.id !== a.id)
   }
 
   save(contact: Contact){
     return this.httpCliente.post<Contact[]>(this.API, contact); //retorna um observable de curso
   }
+  
+  remove(contacts: Contact[], contact: Contact) {
+    return contacts.filter((a) => contact.id !== a.id)
+  }
+
 }

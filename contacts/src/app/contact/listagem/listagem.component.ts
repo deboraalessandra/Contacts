@@ -17,7 +17,7 @@ export class ListagemComponent implements OnInit {
   contacts$: Observable<Contact[]>;
   //@Input() edit = new EventEmitter();
 
-  displayedColumns = ['id', 'name', 'lastName', 'email', 'phone', 'remove', 'edit', 'created'];
+  displayedColumns = ['id', 'name', 'lastName', 'email', 'phone', 'actions'];
   //contacts: Contact[] = []; // lista de atributo de pessoas
 
   constructor(private SoluctionService: SolutionService, //adicionando no construtor a injeção de serviço
