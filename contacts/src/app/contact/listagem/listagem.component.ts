@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { catchError, Observable, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { EventEmitter } from 'stream';
 
 import { Contact } from '../model/contact';
 import { SolutionService } from './../services/solution.service';
@@ -12,14 +13,20 @@ import { SolutionService } from './../services/solution.service';
   styleUrls: ['./listagem.component.scss']
 })
 export class ListagemComponent implements OnInit {
+  contacts$: Observable<Contact[]>;
+  //@Input() edit = new EventEmitter();
+
   displayedColumns = ['id', 'name', 'lastName', 'email', 'phone', 'remove', 'edit'];
   //contacts: Contact[] = []; // lista de atributo de pessoas
 
-  contacts$: Observable<Contact[]>;
 
   constructor(private SoluctionService: SolutionService, //adicionando no construtor a injeção de serviço
     public dialog: MatDialog,
     ) {
+      this.listar();
+    }
+
+  listar (){
     this.contacts$ = this.SoluctionService.listarTodos()
       .pipe(
         catchError(error => {
@@ -29,6 +36,17 @@ export class ListagemComponent implements OnInit {
       );
   }
 
+  save(data: Contact) {
+    this.SoluctionService.save(data)
+    .subscribe(() => {
+        this.listar()
+    });
+  }
+
+  atualizarLista(){
+    this.contacts$ = this.SoluctionService.listarTodos()
+  }
+
   onError(errorMsg: string) {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg
@@ -36,4 +54,8 @@ export class ListagemComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  onEdit(contact: Contact){
+
+  }
 }
