@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { catchError, Observable, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
 import { EventEmitter } from 'stream';
 
 import { Contact } from '../model/contact';
@@ -16,12 +17,13 @@ export class ListagemComponent implements OnInit {
   contacts$: Observable<Contact[]>;
   //@Input() edit = new EventEmitter();
 
-  displayedColumns = ['id', 'name', 'lastName', 'email', 'phone', 'remove', 'edit'];
+  displayedColumns = ['id', 'name', 'lastName', 'email', 'phone', 'remove', 'edit', 'created'];
   //contacts: Contact[] = []; // lista de atributo de pessoas
 
 
   constructor(private SoluctionService: SolutionService, //adicionando no construtor a injeção de serviço
     public dialog: MatDialog,
+    public modalDialog: MatDialog
     ) {
       this.listar();
     }
@@ -51,6 +53,10 @@ export class ListagemComponent implements OnInit {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg
     });
+  }
+
+  openModal(){
+    this.modalDialog.open(ModalComponent)
   }
 
   ngOnInit(): void {}

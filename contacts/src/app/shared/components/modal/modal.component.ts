@@ -1,3 +1,4 @@
+import { ListagemComponent } from './../../../contact/listagem/listagem.component';
 import { Location } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -23,6 +24,7 @@ export class ModalComponent implements OnInit {
     private FormBuilder: FormBuilder,
     private service: SolutionService,
     private snackBar: MatSnackBar,
+   // private listagem: ListagemComponent
 
   ) {
     this.form = this.FormBuilder.group({
