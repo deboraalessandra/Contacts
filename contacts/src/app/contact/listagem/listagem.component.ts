@@ -20,15 +20,16 @@ export class ListagemComponent implements OnInit {
   displayedColumns = ['id', 'name', 'lastName', 'email', 'phone', 'remove', 'edit', 'created'];
   //contacts: Contact[] = []; // lista de atributo de pessoas
 
-
   constructor(private SoluctionService: SolutionService, //adicionando no construtor a injeção de serviço
     public dialog: MatDialog,
     public modalDialog: MatDialog
-    ) {
-      this.listar();
-    }
+  ) {}
 
-  listar (){
+  ngOnInit(): void {
+    this.updateContacts();
+  }
+
+  updateContacts() {
     this.contacts$ = this.SoluctionService.listarTodos()
       .pipe(
         catchError(error => {
@@ -40,13 +41,9 @@ export class ListagemComponent implements OnInit {
 
   save(data: Contact) {
     this.SoluctionService.save(data)
-    .subscribe(() => {
-        this.listar()
-    });
-  }
-
-  atualizarLista(){
-    this.contacts$ = this.SoluctionService.listarTodos()
+      .subscribe(() => {
+        this.updateContacts()
+      });
   }
 
   onError(errorMsg: string) {
@@ -55,13 +52,14 @@ export class ListagemComponent implements OnInit {
     });
   }
 
-  openModal(){
-    this.modalDialog.open(ModalComponent)
+  openModal() {
+    const dialogRef = this.modalDialog.open(ModalComponent);
+    dialogRef.afterClosed().subscribe
+    (result => {
+      if(result){
+        this.updateContacts();
+      }});
   }
 
-  ngOnInit(): void {}
-
-  onEdit(contact: Contact){
-
-  }
+  onEdit(contact: Contact) {}
 }

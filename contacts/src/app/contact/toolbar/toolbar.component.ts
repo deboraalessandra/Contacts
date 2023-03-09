@@ -9,13 +9,8 @@ import { ModalComponent } from 'src/app/shared/components/modal/modal.component'
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor(public modalDialog: MatDialog) { }
+  constructor() { }
 
-  openModal(){
-    this.modalDialog.open(ModalComponent)
-  }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }
