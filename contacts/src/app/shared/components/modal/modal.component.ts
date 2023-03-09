@@ -1,4 +1,3 @@
-import { ListagemComponent } from './../../../contact/listagem/listagem.component';
 import { Location } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -23,7 +22,6 @@ export class ModalComponent implements OnInit {
     public data: string,
     private FormBuilder: FormBuilder,
     private service: SolutionService,
-    private listagem: ListagemComponent,
     private snackBar: MatSnackBar,
 
   ) {
@@ -36,12 +34,17 @@ export class ModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+  }
+
+  loading(){
+   location.reload();
   }
 
   onSubmit() {
-    this.listagem.save(this.form.value);
     //console.log('onSubmit', this.form.value);
-    //this.service.save(this.form.value).subscribe( result => this.onSuccess(), error => { this.onError() } );
+    this.service.save(this.form.value).subscribe( result => this.onSuccess(), error => { this.onError() } );
+
   }
 
   private onError(){
@@ -49,7 +52,6 @@ export class ModalComponent implements OnInit {
   }
 
   private onSuccess(){
-    this.service.listarTodos();
     this.snackBar.open('Contato salvo com sucesso!', '', {duration: 5000});
   }
 

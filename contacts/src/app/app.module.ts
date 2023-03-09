@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 import { ContactModule } from './contact/contact.module';
 import { ListagemComponent } from './contact/listagem/listagem.component';
 import { ToolbarComponent } from './contact/toolbar/toolbar.component';
-//import { TooltipModule } from 'ngx-bootstrap/tooltip';
+
 
 @NgModule({
   declarations: [
