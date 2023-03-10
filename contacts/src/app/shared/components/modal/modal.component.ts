@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { SolutionService } from './../../../contact/services/solution.service';
@@ -21,6 +21,7 @@ export class ModalComponent implements OnInit {
     private FormBuilder: FormBuilder,
     private service: SolutionService,
     private snackBar: MatSnackBar,
+    public dialogRef: MatDialogRef<ModalComponent>
 
   ) {
     this.form = this.FormBuilder.group({
@@ -36,7 +37,9 @@ export class ModalComponent implements OnInit {
   onSubmit() {
     //console.log('onSubmit', this.form.value);
     this.service.save(this.form.value)
-    .subscribe((result) => {this.onSuccess()}  );
+    .subscribe((result) => {
+      this.onSuccess()
+    });
   }
 
   private onError(){
@@ -45,6 +48,7 @@ export class ModalComponent implements OnInit {
 
   private onSuccess(){
     this.snackBar.open('Contato salvo com sucesso!', '', {duration: 5000});
+    this.dialogRef.close(true);
   }
 
   getErrorMessage() {

@@ -20,7 +20,6 @@ export class SolutionService {
   listarTodos() {
     return this.httpCliente.get<Contact[]>(this.API)
       .pipe(
-        first(),
         delay(1000)
         // tap(contacts => console.log(contacts))
       );
@@ -29,7 +28,7 @@ export class SolutionService {
   save(contact: Contact){
     return this.httpCliente.post<Contact[]>(this.API, contact); //retorna um observable de curso
   }
-  
+
   remove(contacts: Contact[], contact: Contact) {
     return contacts.filter((a) => contact.id !== a.id)
   }

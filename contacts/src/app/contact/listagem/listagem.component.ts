@@ -14,6 +14,8 @@ import { SolutionService } from './../services/solution.service';
   styleUrls: ['./listagem.component.scss']
 })
 export class ListagemComponent implements OnInit {
+
+  //@Output() add = new EventEmitter(false);
   contacts$: Observable<Contact[]>;
   //@Input() edit = new EventEmitter();
 
@@ -26,10 +28,10 @@ export class ListagemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.updateContacts();
+    this.update();
   }
 
-  updateContacts() {
+  update() {
     this.contacts$ = this.SoluctionService.listarTodos()
       .pipe(
         catchError(error => {
@@ -37,14 +39,16 @@ export class ListagemComponent implements OnInit {
           return of([])
         })
       );
+      console.log('atualizou');
   }
 
-  save(data: Contact) {
-    this.SoluctionService.save(data)
-      .subscribe(() => {
-        this.updateContacts()
-      });
-  }
+  // save(data: Contact) {
+  //   this.SoluctionService.save(data)
+  //     .subscribe(() => {
+  //       this.update()
+  //     });
+  //     console.log('atualizou');
+  // }
 
   onError(errorMsg: string) {
     this.dialog.open(ErrorDialogComponent, {
@@ -57,7 +61,7 @@ export class ListagemComponent implements OnInit {
     dialogRef.afterClosed().subscribe
     (result => {
       if(result){
-        this.updateContacts();
+        this.update();
       }});
   }
 
