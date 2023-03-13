@@ -29,9 +29,7 @@ export class SolutionService {
     return this.httpCliente.post<Contact[]>(this.API, contact); //retorna um observable de curso
   }
 
-
   delete(contact: Contact) {
     return this.httpCliente.delete(`${this.API}/${contact.id}`);
   }
-
 }

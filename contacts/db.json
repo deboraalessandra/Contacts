@@ -8,18 +8,11 @@
       "phone": "(541) 9381464"
     },
     {
-      "id": 2,
-      "name": "Elvys",
-      "lastName": "Marcos",
-      "email": "@outlook.com",
-      "phone": "(541) 9381464"
-    },
-    {
-      "name": "Davi",
-      "lastName": "Gabriel ",
-      "email": "davi@gmail.com",
-      "phone": "11959036664",
-      "id": 3
+      "name": "Amanda",
+      "lastName": "Biagi",
+      "email": "amanda@",
+      "phone": "123",
+      "id": 2
     }
   ]
 }

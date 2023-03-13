@@ -10,12 +10,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { ErrorConfirmationComponent } from './components/error-confirmation/error-confirmation.component';
 
 
 @NgModule({
   declarations: [
     ErrorDialogComponent,
-    ModalComponent
+    ModalComponent,
+    ErrorConfirmationComponent
   ],
   imports: [
     CommonModule,

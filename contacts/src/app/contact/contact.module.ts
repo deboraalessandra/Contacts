@@ -1,3 +1,4 @@
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -27,9 +28,10 @@ import { SharedModule } from '../shared/shared.module';
     MatTableModule,
     MatButtonModule,
     SharedModule,
+    MatSnackBarModule
   ],
   providers: [ //como é uma service é no providers que tenho que colocar
-   
+
   ]
 })
 export class ContactModule { }

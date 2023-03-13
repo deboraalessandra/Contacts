@@ -21,7 +21,7 @@ export class ModalComponent implements OnInit {
     private FormBuilder: FormBuilder,
     private service: SolutionService,
     private snackBar: MatSnackBar,
-     public dialogRef: MatDialogRef<ModalComponent>
+    public dialogRef: MatDialogRef<ModalComponent>
 
   ) {
     this.form = this.FormBuilder.group({
@@ -47,7 +47,7 @@ export class ModalComponent implements OnInit {
   }
 
   private onSuccess(){
-    this.snackBar.open('Contato salvo com sucesso!', '', {duration: 5000});
+    this.snackBar.open('Contato salvo com sucesso!', '', {duration: 4000});
     this.dialogRef.close(true);
   }
 
@@ -57,5 +57,4 @@ export class ModalComponent implements OnInit {
     }
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
-
 }
