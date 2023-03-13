@@ -21,7 +21,7 @@ export class ModalComponent implements OnInit {
     private FormBuilder: FormBuilder,
     private service: SolutionService,
     private snackBar: MatSnackBar,
-    public dialogRef: MatDialogRef<ModalComponent>
+     public dialogRef: MatDialogRef<ModalComponent>
 
   ) {
     this.form = this.FormBuilder.group({

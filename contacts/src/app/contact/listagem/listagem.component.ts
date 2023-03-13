@@ -17,7 +17,8 @@ export class ListagemComponent implements OnInit {
 
   //@Output() add = new EventEmitter(false);
   contacts$: Observable<Contact[]>;
-  //@Input() edit = new EventEmitter();
+  // @Input() contact: Contact[] = [];
+  // @Output() remove = new EventEmitter();
 
   displayedColumns = ['id', 'name', 'lastName', 'email', 'phone', 'actions'];
   //contacts: Contact[] = []; // lista de atributo de pessoas
@@ -25,13 +26,13 @@ export class ListagemComponent implements OnInit {
   constructor(private SoluctionService: SolutionService, //adicionando no construtor a injeção de serviço
     public dialog: MatDialog,
     public modalDialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.update();
+    this.updateContact();
   }
 
-  update() {
+  updateContact() {
     this.contacts$ = this.SoluctionService.listarTodos()
       .pipe(
         catchError(error => {
@@ -39,7 +40,6 @@ export class ListagemComponent implements OnInit {
           return of([])
         })
       );
-      console.log('atualizou');
   }
 
   // save(data: Contact) {
@@ -59,11 +59,25 @@ export class ListagemComponent implements OnInit {
   openModal() {
     const dialogRef = this.modalDialog.open(ModalComponent);
     dialogRef.afterClosed().subscribe
-    (result => {
-      if(result){
-        this.update();
-      }});
+      (result => {
+        if (result) {
+          this.updateContact();
+        }
+      });
   }
 
-  onEdit(contact: Contact) {}
+  removeContact(contact: Contact) {
+    this.SoluctionService.delete(contact).subscribe(() => {
+      this.updateContact();
+    });
+  }
 }
+
+  // onEdit(contact: Contact) {
+  //   this.edit.emit(contact);
+  // }
+
+
+
+
+

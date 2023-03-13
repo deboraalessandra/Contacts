@@ -29,8 +29,9 @@ export class SolutionService {
     return this.httpCliente.post<Contact[]>(this.API, contact); //retorna um observable de curso
   }
 
-  remove(contacts: Contact[], contact: Contact) {
-    return contacts.filter((a) => contact.id !== a.id)
+
+  delete(contact: Contact) {
+    return this.httpCliente.delete(`${this.API}/${contact.id}`);
   }
 
 }

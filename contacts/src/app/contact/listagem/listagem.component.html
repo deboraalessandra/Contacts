@@ -35,13 +35,13 @@
 
       <mat-cell *matCellDef="let contact" class="action-col">
         <!-- ACTION:: DELETE -->
-        <button mat-icon-button aria-label="icon">
+        <button (click)="removeContact(contact)" mat-icon-button aria-label="icon">
           <mat-icon color="warn">delete</mat-icon>
         </button>
         <!-- END:: DELETE -->
 
         <!-- ACTION:: EDIT -->
-        <button (click)="onEdit(contact)" mat-icon-button aria-label="icon">
+        <button mat-icon-button aria-label="icon">
           <mat-icon color="primary">border_color</mat-icon>
         </button>
         <!-- END:: EDIT -->
