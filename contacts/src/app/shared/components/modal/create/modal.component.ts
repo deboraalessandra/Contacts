@@ -1,10 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SolutionService } from 'src/app/contact/services/solution.service';
-
-
 
 @Component({
   selector: 'app-modal',
@@ -18,7 +16,7 @@ export class ModalComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA)
 
-    public data: string,
+  public data: string,
     private FormBuilder: FormBuilder,
     private service: SolutionService,
     private snackBar: MatSnackBar,
@@ -33,24 +31,24 @@ export class ModalComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit() {
     this.service.save(this.form.value)
-    .subscribe((result) => {
-      this.onSuccess()
-    },
-    (error) => {
-      this.onError();
-    });
+      .subscribe((result) => {
+        this.onSuccess()
+      },
+        (error) => {
+          this.onError();
+        });
   }
 
-  private onError(){
-    this.snackBar.open('Erro ao salvar contato.', '', {duration: 4000});
+  private onError() {
+    this.snackBar.open('Erro ao salvar contato.', '', { duration: 4000 });
   }
 
-  private onSuccess(){
-    this.snackBar.open('Contato salvo com sucesso!', '', {duration: 4000});
+  private onSuccess() {
+    this.snackBar.open('Contato salvo com sucesso!', '', { duration: 4000 });
     this.dialogRef.close(true);
   }
 

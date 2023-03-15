@@ -1,15 +1,14 @@
-import { ErrorConfirmationComponent } from './../../shared/components/error-confirmation/error-confirmation.component';
-import { Component, OnInit, Input, Output, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, Observable, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { ModalComponent } from 'src/app/shared/components/modal/create/modal.component';
-import { EventEmitter } from 'stream';
+import { ModalEditComponent } from 'src/app/shared/components/modal/modal-edit/modal-edit.component';
 
 import { Contact } from '../model/contact';
+import { ErrorConfirmationComponent } from './../../shared/components/error-confirmation/error-confirmation.component';
 import { SolutionService } from './../services/solution.service';
-import { ModalEditComponent } from 'src/app/shared/components/modal/modal-edit/modal-edit.component';
 
 @Component({
   selector: 'app-listagem',
@@ -52,28 +51,28 @@ export class ListagemComponent implements OnInit {
   openModal() {
     const dialogRef = this.modalDialog.open(ModalComponent);
     dialogRef.afterClosed()
-    .subscribe(result => {
+      .subscribe(result => {
         if (result) {
           this.updateContact();
         }
       });
   }
 
-  editar(contact: Contact){
+  editar(contact: Contact) {
     const dialogRef = this.dialog.open(ModalEditComponent, {
       width: '500px',
-      data: {id: contact.id, name: contact.name, lastName: contact.lastName, email: contact.email, phone: contact.phone }
+      data: { id: contact.id, name: contact.name, lastName: contact.lastName, email: contact.email, phone: contact.phone }
     });
 
     dialogRef.afterClosed()
-    .subscribe(result => {
+      .subscribe(result => {
         if (result) {
           this.updateContact();
         }
       });
   }
 
-  edited(contact: Contact){
+  edited(contact: Contact) {
     this.SoluctionService.edit(contact);
   }
 

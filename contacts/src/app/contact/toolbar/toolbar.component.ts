@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from 'src/app/shared/components/modal/create/modal.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -11,6 +9,6 @@ export class ToolbarComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
 }

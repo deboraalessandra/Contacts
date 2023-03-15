@@ -1,9 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
-import { Contact } from 'src/app/contact/model/contact';
-import { SolutionService } from 'src/app/contact/services/solution.service';
 
 @Component({
   selector: 'app-error-confirmation',
@@ -15,7 +11,7 @@ export class ErrorConfirmationComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ErrorConfirmationComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { nome: string }
-  ) {}
+  ) { }
 
   onNaoClick(): void {
     this.dialogRef.close();
@@ -25,8 +21,5 @@ export class ErrorConfirmationComponent implements OnInit {
     this.dialogRef.close(true);
   }
 
-  ngOnInit(): void {
-  }
-
-
+  ngOnInit(): void {}
 }

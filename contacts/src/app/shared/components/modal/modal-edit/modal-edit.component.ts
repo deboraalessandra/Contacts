@@ -1,8 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SolutionService } from 'src/app/contact/services/solution.service';
+
 import { Contact } from './../../../../contact/model/contact';
 
 @Component({
@@ -19,7 +20,7 @@ export class ModalEditComponent implements OnInit {
     private service: SolutionService,
     private FormBuilder: FormBuilder,
     private snackBar: MatSnackBar,
-  ) {}
+  ) { }
 
   ngOnInit(): void { }
 
