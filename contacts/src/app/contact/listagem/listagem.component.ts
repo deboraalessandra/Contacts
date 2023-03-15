@@ -4,11 +4,12 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, Observable, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
-import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
+import { ModalComponent } from 'src/app/shared/components/modal/create/modal.component';
 import { EventEmitter } from 'stream';
 
 import { Contact } from '../model/contact';
 import { SolutionService } from './../services/solution.service';
+import { ModalEditComponent } from 'src/app/shared/components/modal/modal-edit/modal-edit.component';
 
 @Component({
   selector: 'app-listagem',
@@ -17,21 +18,15 @@ import { SolutionService } from './../services/solution.service';
 })
 export class ListagemComponent implements OnInit {
 
-  //@Output() add = new EventEmitter(false);
   contacts$: Observable<Contact[]>;
-  // @Input() contact: Contact[] = [];
-  // @Output() remove = new EventEmitter();
 
   displayedColumns = ['id', 'name', 'lastName', 'email', 'phone', 'actions'];
-  //contacts: Contact[] = []; // lista de atributo de pessoas
 
   constructor(
     private SoluctionService: SolutionService, //adicionando no construtor a injeção de serviço
     public dialog: MatDialog,
     public modalDialog: MatDialog,
     private snack: MatSnackBar
-
-    // public dialogRef: MatDialogRef<ModalComponent>
   ) { }
 
   ngOnInit(): void {
@@ -56,12 +51,30 @@ export class ListagemComponent implements OnInit {
 
   openModal() {
     const dialogRef = this.modalDialog.open(ModalComponent);
-    dialogRef.afterClosed().subscribe
-      (result => {
+    dialogRef.afterClosed()
+    .subscribe(result => {
         if (result) {
           this.updateContact();
         }
       });
+  }
+
+  editar(contact: Contact){
+    const dialogRef = this.dialog.open(ModalEditComponent, {
+      width: '500px',
+      data: {id: contact.id, name: contact.name, lastName: contact.lastName, email: contact.email, phone: contact.phone }
+    });
+
+    dialogRef.afterClosed()
+    .subscribe(result => {
+        if (result) {
+          this.updateContact();
+        }
+      });
+  }
+
+  edited(contact: Contact){
+    this.SoluctionService.edit(contact);
   }
 
   delete(contact: Contact) {
@@ -82,6 +95,10 @@ export class ListagemComponent implements OnInit {
 
   onSuccessRemove() {
     this.snack.open('Contato Removido com sucesso!', '', { duration: 5000 });
+  }
+
+  onSuccessEdit() {
+    this.snack.open('Contato Editado com sucesso!', '', { duration: 5000 });
   }
 }
 

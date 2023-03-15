@@ -41,8 +41,8 @@
         <!-- END:: DELETE -->
 
         <!-- ACTION:: EDIT -->
-        <button mat-icon-button aria-label="icon">
-          <mat-icon color="primary">border_color</mat-icon>
+        <button (click)="editar(contact)" mat-icon-button aria-label="icon">
+          <mat-icon  color="primary">border_color</mat-icon>
         </button>
         <!-- END:: EDIT -->
       </mat-cell>
@@ -51,7 +51,6 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-    <!-- <p *ngIf="contacts.length==0">Nenhuma pessoa cadastrada.</p> -->
   </mat-table>
 </div>
 
