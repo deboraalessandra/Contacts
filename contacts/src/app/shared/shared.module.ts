@@ -7,17 +7,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
-import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
-import { ModalComponent } from './components/modal/modal.component';
 import { ErrorConfirmationComponent } from './components/error-confirmation/error-confirmation.component';
-
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+import { ModalComponent } from './components/modal/create/modal.component';
+import { ModalEditComponent } from './components/modal/modal-edit/modal-edit.component';
 
 @NgModule({
   declarations: [
     ErrorDialogComponent,
     ModalComponent,
-    ErrorConfirmationComponent
+    ErrorConfirmationComponent,
+    ModalEditComponent
   ],
   imports: [
     CommonModule,
