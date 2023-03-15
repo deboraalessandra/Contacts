@@ -2,8 +2,9 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SolutionService } from 'src/app/contact/services/solution.service';
 
-import { SolutionService } from './../../../contact/services/solution.service';
+
 
 @Component({
   selector: 'app-modal',
@@ -35,10 +36,12 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    //console.log('onSubmit', this.form.value);
     this.service.save(this.form.value)
     .subscribe((result) => {
       this.onSuccess()
+    },
+    (error) => {
+      this.onError();
     });
   }
 
